@@ -1,0 +1,14 @@
+﻿body {
+    padding-bottom: 60px;
+}
+
+.compact-card .card-body {
+    padding: 0.5rem; 
+}
+
+.compact-card .card-title,
+.compact-card .card-text {
+    /*margin-bottom: 0; !* Reduce margin for title and text *!*/
+    /*font-size: 0.8rem; !* Smaller font size *!*/
+}
+

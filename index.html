@@ -1,20 +1,73 @@
 ﻿<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BishBosh</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>BishBosh</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 <body>
-<h1>Hello, world!</h1>
+
+<div class="container mt-5">
+
+    <header class="text-center mb-4">
+        <h1>Hello, Bish Bosh!</h1>
 
 
+    </header>
 
 
+    <main>
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <form id="bishBoshForm" class="row g-3 justify-content-center">
+                    <div class="col-12 col-sm-4">
+                        <label for="bishInput" class="form-label">Bish (e.g., 3)</label>
+                        <input type="number" class="form-control" id="bishInput" placeholder="Enter Bish value"
+                               required min="1">
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        <label for="boshInput" class="form-label">Bosh (e.g., 4)</label>
+                        <input type="number" class="form-control" id="boshInput" placeholder="Enter Bosh value"
+                               required min="1">
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        <label for="limitInput" class="form-label">Limit (e.g., 100)</label>
+                        <input type="number" class="form-control" id="limitInput" placeholder="Enter limit value"
+                               required min="1">
+                    </div>
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-primary">Generate</button>
+                    </div>
+                </form>
+            </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+            <div class="col-12 col-lg-10 mt-4" id="result">
+
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+    <footer class="text-center mt-4 mt-3 py-3 fixed-bottom bg-white">
+        Marcus Uppström © 2024
+    </footer>
+
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
 <script src="bishbosh.js"></script>
 </body>
 </html>

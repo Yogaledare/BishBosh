@@ -1,14 +1,4 @@
-﻿function showMessage() {
-    console.log('Hello from script.js!');
-}
-
-
-// declarative (eager)
-const BishBoshDeclarative = (bish = 3, bosh = 4, limit = 100) => {
-    const sequence = [...Array(limit).keys()].map(i => i + 1);
-    return sequence.map(i => GetBishBosh(i, bish, bosh));
-}
-
+﻿
 
 const GetBishBosh = (input, bish, bosh) => {
     if (input % bish === 0 && input % bosh === 0) return 'Bish-Bosh';
@@ -18,25 +8,135 @@ const GetBishBosh = (input, bish, bosh) => {
 }
 
 
-
-
 const BishBoshImperative = (bish = 3, bosh = 4, limit = 100) => {
     const output = [];
 
     for (let i = 1; i <= limit; i++) {
         let value = GetBishBosh(i, bish, bosh); 
-        output.push(value); 
+        output.push(value);
     }
-    
-    return output; 
+
+    return output;
+}
+
+
+const MakeBisBoshCard = (result, index) => {
+    return `
+        <div class="col-xl-2 col-lg-3 col-sm-4">
+            <div class="card compact-card">
+                <div class="card-body d-flex justify-content-between">
+                    <div class="text-center me-3">
+                        #${index + 1}
+                    </div>
+                    <div class="card-text ">
+                        ${result}
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('bishBoshForm').addEventListener(
+        'submit',
+        (event) => {
+            event.preventDefault(); 
+
+            const bish = document.getElementById('bishInput').value;
+            const bosh = document.getElementById('boshInput').value;
+            const limit = document.getElementById('limitInput').value;
+            
+            console.log(` hello ${bish}, ${bosh}, ${limit}`)
+            
+            const results = BishBoshImperative(bish, bosh, limit); 
+            
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = ''; // Clear previous results
+            // resultDiv.innerHTML = results.join(', '); 
+
+            const row = document.createElement('div');
+            row.className = 'row row-cols-md-6 g-4';
+
+            let cardsHtml = results.map((result, index) => MakeBisBoshCard(result, index))
+
+            document.getElementById('result').innerHTML =
+                `<div class="row g-4">${cardsHtml.join('')}</div>`;
+        })
+});
+
+
+// declarative (eager)
+const BishBoshDeclarative = (bish = 3, bosh = 4, limit = 100) => {
+    const sequence = [...Array(limit).keys()].map(i => i + 1);
+    return sequence.map(i => GetBishBosh(i, bish, bosh));
 }
 
 
 
+
+
+// results.forEach((result, index) => {
+//     const col = document.createElement('div');
+//     col.className = 'col';
+//
+//     const card = document.createElement('div');
+//     card.className = 'card compact-card'; 
+//
+//     const cardBody = document.createElement('div');
+//     cardBody.className = 'card-body';
+//
+//     const cardTitle = document.createElement('h6'); 
+//     cardTitle.className = 'card-title';
+//     cardTitle.textContent = `#${index + 1}`;
+//
+//     const cardText = document.createElement('p');
+//     cardText.className = 'card-text';
+//     cardText.textContent = result;
+//
+//     cardBody.appendChild(cardTitle);
+//     cardBody.appendChild(cardText);
+//     card.appendChild(cardBody);
+//     col.appendChild(card);
+//     row.appendChild(col);
+// });
+
+// resultDiv.appendChild(row);
+
+
+
+//
+// results.forEach((result, index) => {
+//     const col = document.createElement('div');
+//     col.className = 'col';
+//
+//     const card = document.createElement('div');
+//     card.className = 'card h-100';
+//
+//     const cardBody = document.createElement('div');
+//     cardBody.className = 'card-body';
+//
+//     const cardTitle = document.createElement('h5');
+//     cardTitle.className = 'card-title';
+//     cardTitle.textContent = `#${index + 1}`;
+//
+//     const cardText = document.createElement('p');
+//     cardText.className = 'card-text';
+//     cardText.textContent = result;
+//
+//     cardBody.appendChild(cardTitle);
+//     cardBody.appendChild(cardText);
+//     card.appendChild(cardBody);
+//     col.appendChild(card);
+//     row.appendChild(col);
+// });
+//
+
 // BishBosh();
 
-let declarative = BishBoshDeclarative(); 
-declarative.map(i => console.log(i))
+// let declarative = BishBoshDeclarative(); 
+// declarative.map(i => console.log(i))
 
 
 
