@@ -25,10 +25,10 @@ const MakeBisBoshCard = (result, index) => {
         <div class="col-xl-2 col-lg-3 col-sm-4">
             <div class="card compact-card">
                 <div class="card-body d-flex justify-content-between">
-                    <div class="text-center me-3">
+                    <div class="me-3">
                         #${index + 1}
                     </div>
-                    <div class="card-text ">
+                    <div >
                         ${result}
                     </div>
                 </div>
@@ -53,9 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const results = BishBoshImperative(bish, bosh, limit); 
             
             const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = ''; // Clear previous results
-            // resultDiv.innerHTML = results.join(', '); 
-
+            resultDiv.innerHTML = ''; 
+            
             const row = document.createElement('div');
             row.className = 'row row-cols-md-6 g-4';
 
@@ -67,13 +66,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// declarative (eager)
+// declarative (eager) version 
 const BishBoshDeclarative = (bish = 3, bosh = 4, limit = 100) => {
     const sequence = [...Array(limit).keys()].map(i => i + 1);
     return sequence.map(i => GetBishBosh(i, bish, bosh));
 }
 
 
+let output = BishBoshImperative(); 
+output.map(v => console.log(v))
 
 
 
