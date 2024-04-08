@@ -1,6 +1,6 @@
 ## Övning 9: Web - Front-end och JavaScript
 
-# Övning och tillämpning av klient funktionalitet
+### Övning och tillämpning av klient funktionalitet
 
 ## Bish-Bosh
 
